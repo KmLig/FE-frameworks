@@ -1,6 +1,6 @@
 <template>
     <button @click="nextLight">Next light</button>
-    <p>Light is: {{ light }}</p>
+    <p>Light is {{ light }}</p>
     <p>
         You must
         <span v-if="light === 'red'">STOP</span>
@@ -10,14 +10,15 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
-const TRAFFIC_LIGHTS = ["red", "orange", "green"];
-const lightIndex = ref(0);
+import { computed, ref } from 'vue';
 
-const light = computed(() => TRAFFIC_LIGHTS[lightIndex.value]);
+const TRAFFIC_LIGHTS =  ['red', 'orange', 'green']
+const lightIndex = ref(0)
+
+const light = computed(() => TRAFFIC_LIGHTS[lightIndex.value])
 
 function nextLight() {
-  lightIndex.value = (lightIndex.value + 1) % TRAFFIC_LIGHTS.length;
+    lightIndex.value = (lightIndex.value + 1) % TRAFFIC_LIGHTS.length
 }
 </script>
 
